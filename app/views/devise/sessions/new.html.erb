@@ -1,0 +1,41 @@
+
+<div class="well">
+  <form class="form-horizontal">
+    <legend><h2>Sign in</h2></legend>
+    <fieldset>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+          <div class="form-group">
+
+
+            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+              <%= f.email_field :email,:type => "text", :autofocus => true , :placeholder => "Email", :class => "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <%= f.password_field :password, :type => "password", :placeholder=> "Password", :class => "form-control" %>
+              <div class="checkbox">
+                <% if devise_mapping.rememberable? %>
+                    <label for="checkbox">
+                      <%= f.check_box :remember_me , :type => "checkbox"%>Remember me
+                    </label>
+                <% end %>
+              </div>
+
+            </div>
+
+            <div class="col-lg-10 col-lg-offset-2">
+              <button class="btn btn-default">Cancel</button>
+              <%= f.submit "Sign in", :class=>"btn btn-primary"%>
+            </div>
+
+
+          </div>
+          <%= render "devise/shared/links" %>
+          </fieldset>
+          </form>
+      <% end %>
+      </div>
